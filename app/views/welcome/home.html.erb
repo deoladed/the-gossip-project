@@ -1,15 +1,21 @@
-<h1>Welcome <%= params[:name] %></h1>
-<p>Hey salut <%= params[:name] %> ! Bienvenue sur THE site de potins. <span class='font-weight-bold'>Eclate toi et viens cracher sur tes copains !</span></p>
+<h1>Welcome <%= @name %></h1>
+<p>Hey salut <%= @name %> ! Bienvenue sur THE site de potins. <span class='font-weight-bold'>Eclate toi et viens cracher sur tes copains !</span></p>
 
 <div>
 	<% @potins.each do |potin| %>
-	<div class="alert alert-dark alert-dismissible fade show" role="alert">
-		<%= link_to potin.title, potins_path(potin.id), class:"alert-link" %>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-		<hr>
-		par <%= potin.user.first_name %>
-	</div>
+<div class="card text-center">
+  <div class="card-header">
+    par <%= potin.user.first_name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= potin.title %></h5>
+    <p class="card-text"></p>
+    <%= link_to "Voir le potin", potins_path(potin.id), class:"btn btn-primary" %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= potin.date.to_s[0..-13] %>
+  </div>
+</div>
+<br>
 	<% end %>         
 </div>

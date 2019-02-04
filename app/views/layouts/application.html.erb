@@ -16,7 +16,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-flex", style="background-color: #7764de;">
     
     <img src="https://www.thehackingproject.org/packs/packs/static_pages/assets/images/logo_black-3d6bec995368618a7e9f44536410ae0a.png" width="90" height="24" alt="THP" class="mr-auto ">
-    <span class='col'><%= link_to 'THPotins', welcome_path(@name), class:"navbar-brand" %></span>
+    <span class='col'><%= link_to 'THPotins', welcome_path('toi'), class:"navbar-brand" %></span>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -34,7 +34,7 @@
 
 
 <br>
-<p class="text-center font-italic"> THPotins est LE site pour baver sur tes camarades soi-disants "codeurs". Haha! Eclate-toi et <a href="/gossips/new/" class="alert-link">cree un nouveau potin</a> des mainteant ! </p>
+<p class="text-center font-italic"> THPotins est LE site pour baver sur tes camarades soi-disants "codeurs". Haha! Eclate-toi et <%= link_to 'cree un nouveau potin', create_path %> des mainteant ! </p>
 
 
 
