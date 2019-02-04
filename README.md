@@ -1,24 +1,12 @@
-# README
+# Welcome to, THpotins !
+Ruby version : 2.5.1
+Rails vers : 5.2.1
+--------------------------------------
+## Contenu
+A toi de le decouvrir. Un indice, tu ne peux pas encore creer de potins mais les commentaires sont fonctionnels, lache toi gros!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Utilisation
+Apres le *git clone*, fais biensur un ***bundle install***, puis un *rails db:seed* pour creer la DB sinon il n'y aura pas beaucoup de potins a afficher !  =)
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Courage jeune correcteur !

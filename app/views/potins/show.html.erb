@@ -3,15 +3,16 @@
 <div class="jumbotron">
 	<div><h3 class="text-dark font-weight-bold"> Potin Nr. <%= @lepotin.id %>:</h3>
 		<h5 class="display-20"><u><%= @lepotin.title %></u></h5></div>
-		<span class="lead"><br><%= @lepotin.content %></span>
+		<span class="lead"><br><%= @lepotin.content[1..-2] %></span>
 		<hr class="my-4">
 
 		<div class="badge badge-primary text-wrap" style="width: 6rem;"><%= link_to "Auteur : #{@lepotin.user.first_name}", users_path(@lepotin.id, @lepotin.user.first_name), class:"text-white" %>
 		</div>
 
-	<div class="d-flex flex-row-reverse">
-		<a class="btn btn-primary btn-sm" href="..//edit" role="button">Editer le potin</a></div>
+		<div class="d-flex flex-row-reverse"><%= link_to 'Editer le potin', edit_path, class:"btn btn-primary btn-sm", role:"button" %>
+	    </div>
 	</div>
+</div>
 <!--------------------------------AJOUT COMMENTAIRES --------------------------------------------->   
    <div class="card">
    	<div class="card-header", style="background-color: #e9ecef;">
@@ -22,7 +23,7 @@
 	<form action='<%= params[:id] %>' method='POST'>
 		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
 		Balance ton blase : <input type='text' name='user'/><br/>
-		Balance ton comment : <input type='text' name='comment'/><br/>
+		Balance ton comment : <input type='text' name='comment'/><br/
 		<input type='submit' value='Commenter'/>
 	</form> 
    			<footer class="blockquote-footer">Lache toi mon vieux ! <cite title="Source Title">par l'admin de THPotin</cite></footer>
@@ -35,7 +36,7 @@
 	<br>
 	<div class="card">
 		<div class="card-header d-flex justify-content-between", style="background-color: #e9ecef;">
-			<span>Commentaire de <%= @lepotin.user.first_name %></span><span class=''><%= comment.created_at.to_s[0..-13] %></span>
+			<span>Commentaire de <%= comment.user.first_name %></span><span class=''><%= comment.created_at.to_s[0..-13] %></span>
 		</div>
 		<div class="card-body">
 			<blockquote class="blockquote mb-0">
