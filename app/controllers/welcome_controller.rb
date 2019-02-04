@@ -2,11 +2,11 @@ class WelcomeController < ApplicationController
 
   def home
   	@potins = Potin.all
-  	@name = params[:blase]
+  	unless params[:blase].nil?
+  	User.create(first_name: params[:blase], city: City.all.sample)
       end
+    end
   def askname
-  	@name = 'toi'
-  	# User.create(first_name: params[:blase], city: City.all.sample)
   end
 
 end

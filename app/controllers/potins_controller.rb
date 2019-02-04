@@ -1,19 +1,18 @@
 class PotinsController < ApplicationController
   def show
   	@potins = Potin.all
-  	puts '#' *30
-  	puts params
-  	puts params[:id]
-  	puts '#' *30
-    @name = 'toi'
+    unless params[:user].nil? && params[:comment].nil?
+      Comment.create(user: User.all.last, content:params[:comment], commenteable: Potin.find(params[:id])) 
+    end
   end
 
   def user
   	@potins = Potin.all
-    @name = 'toi'
   end
 
   def create
-    @name = 'toi'
+  end
+
+  def edit
   end
 end
