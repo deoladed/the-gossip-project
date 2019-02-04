@@ -1,6 +1,6 @@
 # Welcome to, THpotins !
-> Ruby version : 2.5.1
-> Rails version : 5.2.1
+* Ruby version : 2.5.1
+* Rails version : 5.2.1
 --------------------------------------
 ## Contenu
 A toi de le decouvrir. Un indice, tu ne peux pas encore creer de potins mais les commentaires sont fonctionnels, lache toi gros!
