@@ -1,0 +1,17 @@
+<% @lepotin = @potins[params[:id].to_i - 1] %>
+<br>
+<div class="jumbotron">
+	<h3 class="d-flex justify-content-center text-dark font-weight-bold"> Profil de <%= @lepotin.user.first_name %>:</h3>
+	<div class="d-flex justify-content-center">
+		<ul class="list-group">
+			<li class="list-group-item"><strong>Prenom</strong> : <span class="font-italic"><%= @lepotin.user.first_name %></span></li>
+			<li class="list-group-item"><strong>Nom</strong> : <span class="font-italic"><%= @lepotin.user.last_name %></span></li>
+			<li class="list-group-item"><strong>Age</strong> : <span class="font-italic"><%= @lepotin.user.age %></span></li>
+			<li class="list-group-item"><strong>Email</strong> : <span class="font-italic"><%= @lepotin.user.email %></span></li>
+			<li class="list-group-item"><strong>Ville</strong> : <span class="font-italic"><%= @lepotin.user.city.name %></span></li>
+		</ul>
+	</div>
+	<hr class="my-4">
+<ul class="list-group">
+	<li class="list-group-item"><span class="lead"><br><%= @lepotin.user.description %></span></li></ul>
+</div>

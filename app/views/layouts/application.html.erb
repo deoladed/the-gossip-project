@@ -7,9 +7,76 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
 
   <body>
+    <!--     --------------------------- navbar  ----------------- -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-flex", style="background-color: #7764de;">
+    
+    <img src="https://www.thehackingproject.org/packs/packs/static_pages/assets/images/logo_black-3d6bec995368618a7e9f44536410ae0a.png" width="90" height="24" alt="THP" class="mr-auto ">
+    <span class='col'><%= link_to 'THPotins', welcome_path(@name), class:"navbar-brand" %></span>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "Team", team_path, class:"nav-item nav-link active" %>
+        <span class="sr-only">(current)</span>
+        <%= link_to "Contact", contact_path, class:"nav-item nav-link" %>
+
+      </div>
+    </div>
+  </nav>
+
     <%= yield %>
+
+<!-- ---------------------------PARAGRAPH------------------------------------- -->
+
+
+<br>
+<p class="text-center font-italic"> THPotins est LE site pour baver sur tes camarades soi-disants "codeurs". Haha! Eclate-toi et <a href="/gossips/new/" class="alert-link">cree un nouveau potin</a> des mainteant ! </p>
+
+
+
+<div class="jumbotron">
+<div class="d-flex flex-row justify-content-around text-center">
+  <div class"border">
+    <i class="fas fa-yin-yang fa-5x"></i><br><br>
+    <h1 class="display-8">Magic</h1>
+    <p class="lead">La magie du cracher sur tes potes en toute impunite.</p>
+  </div>
+  <div class"border">
+    <i class="fas fa-atom fa-5x"></i> <br><br>
+    <h1 class="display-8">Discretion</h1>
+    <p class="lead">Tu peux meme poster en mode anonyme.</p>
+  </div>
+  <div class"border">
+    <i class="fas fa-cross fa-5x"></i><br><br>
+    <h1 class="display-8">C'est toi le produit !</h1>
+    <p class="lead">Car si c'est gratuit, c'est bien que c'est toi le produit !.</p>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- -----------------------__FOOTER ------------------ -->
+
+
+
+   <footer class="footer">
+      <div class="container fixed-bottom d-flex justify-content-between">
+        <a class="text-muted" href="#">Back to top</a>
+        <span class="text-muted">Made with love <i class="fab fa-angellist"></i> in Lyon</span>
+      </div>
+    </footer>
+<!---------------------------------- BOOTSTRAP SCRIPTS ------------------ > 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
   </body>
 </html>
