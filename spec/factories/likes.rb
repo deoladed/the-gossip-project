@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :like do
-    user { nil }
-    likeable { nil }
+    user { FactoryBot.create(:user) }
+    likeable { FactoryBot.create(:city) }
   end
 end

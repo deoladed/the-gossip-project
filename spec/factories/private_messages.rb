@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :private_message do
-    sender { nil }
+    sender { FactoryBot.create(:user) }
   end
 end
