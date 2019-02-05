@@ -1,4 +1,4 @@
-<% @lepotin = @potins[params[:id].to_i - 1] %>
+<% @lepotin = @potins.find(params[:id]) %>
 <br>
 <div class="jumbotron">
 	<h5 class="d-flex justify-content-center text-dark font-weight-bold"> <u>Profil de <%= @lepotin.user.first_name %>:</u></h5><br>
