@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'potins/:id', to: 'potins#show', as: 'comment'
   get 'create', to: 'potins#create'
   post 'gossips', to: 'welcome#home'
+  get 'gossips', to: 'welcome#home'
   get 'edit', to: 'potins#edit'
   get 'welcome/:name', to: 'welcome#home', as: 'welcome'
   get 'team', to: 'statics#team'

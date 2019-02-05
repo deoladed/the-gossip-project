@@ -3,7 +3,7 @@
 <div class="jumbotron">
 	<div><h3 class="text-dark font-weight-bold"> Potin Nr. <%= @lepotin.id %>:</h3>
 		<h5 class="display-20"><u><%= @lepotin.title %></u></h5></div>
-		<span class="lead"><br><%= @lepotin.content[1..-2] %></span>
+		<span class="lead"><br><%= @lepotin.content %></span>
 		<hr class="my-4">
 
 		<div class="badge badge-primary text-wrap" style="width: 6rem;"><%= link_to "Auteur : #{@lepotin.user.first_name}", users_path(@lepotin.id, @lepotin.user.first_name), class:"text-white" %>
