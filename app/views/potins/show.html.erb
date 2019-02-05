@@ -1,14 +1,26 @@
 <% @lepotin = @potins.find(params[:id]) %>
 <br>
+
 <div class="jumbotron">
-	<div><h3 class="text-dark font-weight-bold"> Potin Nr. <%= @lepotin.id %>:</h3>
+	<div><h3 class="text-dark font-weight-bold"> Potin Nr. <%= @lepotin.id %>: </h3>
 		<h5 class="display-20"><u><%= @lepotin.title %></u></h5></div>
 		<span class="lead"><br><%= @lepotin.content %></span>
+		<div class='d-flex'></div><div class="badge badge-primary text-wrap margin" style="width: 4rem;"><%= @lepotin.likes.size.to_s %> Likes<%= form_tag(potins_path(params[:id])) do -%>
+	<div class='mt-auto'><%= submit_tag 'Liker' %></div>
+	<% end -%></div>
+	  
+	
+		<div class="d-flex justify-content-end">
+			<div>
+			<% @lepotin.tags.each do |tag| %>
+			<div class="badge badge-primary text-wrap margin" style="width: 4rem;"><%= "##{tag.title}" %></div>
+			<% end %>
+			</div>
+		</div>
 		<hr class="my-4">
 
 		<div class="badge badge-primary text-wrap" style="width: 6rem;"><%= link_to "Auteur : #{@lepotin.user.first_name}", users_path(@lepotin.id, @lepotin.user.first_name), class:"text-white" %>
 		</div>
-
 		<div class="d-flex flex-row-reverse"><%= link_to 'Editer le potin', edit_path, class:"btn btn-primary btn-sm", role:"button" %>
 	    </div>
 	</div>
