@@ -1,1 +1,9 @@
-<br><br><br><center><h1>Fonctionnalite bientot disponible !</h1></center><br><br><br><br><br><br><br><br><br>
+	<br><div class="d-flex flex-column align-items-center">
+<h1>Cree un THPotin !</h1><br>
+
+	<%= form_tag(gossips_path) do -%>
+	<center><div class='mt-auto'><%= text_field_tag 'Potin_title', nil, placeholder: 'Titre' %></div><br></center>
+	<div><%= text_area_tag 'Potin_text', nil, placeholder: 'Raconte moi tout...', size: "50x10" %></div><br>
+	<center><div class='mt-auto'><%= submit_tag 'Creer' %></div></center>
+	<% end -%>
+</div>

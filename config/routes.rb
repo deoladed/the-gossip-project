@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-
+  
   get 'potins/:id/:user', to: 'potins#user', as: 'users'
   get 'potins/:id', to: 'potins#show', as: 'potins'
   post 'potins/:id', to: 'potins#show', as: 'comment'
   get 'create', to: 'potins#create'
+  post 'gossips', to: 'welcome#home'
   get 'edit', to: 'potins#edit'
   get 'welcome/:name', to: 'welcome#home', as: 'welcome'
   get 'team', to: 'statics#team'
