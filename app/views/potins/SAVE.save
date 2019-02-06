@@ -1,0 +1,3 @@
+Likes<%= form_tag(potins_path(params[:id])) do -%>
+	<div class='mt-auto'><%= submit_tag 'Liker' %></div>
+	<% end -%></div>

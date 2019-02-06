@@ -34,7 +34,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-flex", style="background-color: #7764de;">
     
     <img src="https://www.thehackingproject.org/packs/packs/static_pages/assets/images/logo_black-3d6bec995368618a7e9f44536410ae0a.png" width="90" height="24" alt="THP" class="mr-auto ">
-    <span class='col'><%= link_to 'THPotins', welcome_path(User.all.last.first_name), class:"navbar-brand" %></span>
+    <span class='col'><%= link_to 'THPotins', potins_path(User.all.last.first_name), class:"navbar-brand" %></span>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -46,13 +46,48 @@
     </div>
   </nav>
 <!------------------------------- YIELD ------------------------->
+<% flash.each do |name, msg| %>
+   <% if content_tag :div, msg, :class => :notice %>
+<br>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Bravo</h4>
+  Votre potin a ete cree avec succes! 
+  </ul>
+  <hr>
+  <p class="mb-0">Merci de votre mechancete, continuez a vous lacher sur vos collegues !</p>
+</div>
+   <% elsif content_tag :div, msg, :class => :alerte %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur!</h4>
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>  <ul>
+    <% @potin.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    </ul>
+  <hr>
+  <p class="mb-0">Veuillez reesayer, suivre les consignes et rester patient.</p>
+</div>
+  <% else %>
+    puts 'Ouaiiiis'
+    <% end %>
+<% end %>
+
+
+
+
+<% end %>
+   
+
+
+
+
+
     <%= yield %>
 
 <!-- ---------------------------PARAGRAPH------------------------------------- -->
 
 
 <br>
-<p class="text-center font-italic"> THPotins est LE site pour baver sur tes camarades soi-disants "codeurs". Haha! Eclate-toi et <%= link_to 'cree un nouveau potin', create_path %> des mainteant ! </p>
+<p class="text-center font-italic"> THPotins est LE site pour baver sur tes camarades soi-disants "codeurs". Haha! Eclate-toi et <%= link_to 'cree un nouveau potin', new_potin_path %> des mainteant ! </p>
 
 
 

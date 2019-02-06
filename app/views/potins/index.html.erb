@@ -1,3 +1,13 @@
+<br><% if @potin.save %>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Bravo</h4>
+  Votre potin a ete cree avec succes! 
+  </ul>
+  <hr>
+  <p class="mb-0">Merci de votre mechancete, continuez a vous lacher sur vos collegues !</p>
+</div>
+<% end %>
+
 <center><br><h1>WELCOME <%= User.all.last.first_name.upcase %></h1><br>
 <p>Hey salut <%= User.all.last.first_name %> ! Bienvenue sur THE site de potins. <span class='font-weight-bold'>Eclate toi et viens cracher sur tes copains !</span></p><br></center>
 
@@ -10,7 +20,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= potin.title %></h5>
     <p class="card-text"></p>
-    <%= link_to "Voir le potin", potins_path(potin.id), class:"btn btn-primary" %>
+    <%= link_to "Voir le potin", potin_path(potin.id), class:"btn btn-primary" %>
   </div>
   <div class="card-footer text-muted">
     <%= potin.date.to_s[0..-13] %>

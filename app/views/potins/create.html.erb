@@ -1,13 +1,9 @@
-	<br><div class="d-flex flex-column align-items-center">
-<h1>Cree un THPotin !</h1><br>
-
-	<%= form_tag(gossips_path) do -%>
-	<center><div class='mt-auto'><%= text_field_tag 'Potin_title', nil, placeholder: 'Titre' %></div><br></center>
-	<div><%= text_area_tag 'Potin_text', nil, placeholder: 'Raconte moi tout...', size: "50x10" %></div><br>
-	<center><div class='mt-auto'><%= submit_tag 'Creer' %></div></center>
-	<% end -%>
+<br><% if @potin.save %>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Bravo</h4>
+  Votre potin a ete cree avec succes! 
+  </ul>
+  <hr>
+  <p class="mb-0">Merci de votre mechancete, continuez a vous lacher sur vos collegues !</p>
 </div>
-
-<%= form_tag(gossips_path) do -%>
-	<div class='mt-auto'><%= submit_tag 'Liker' %></div>
-	<% end -%>
+<% end %>

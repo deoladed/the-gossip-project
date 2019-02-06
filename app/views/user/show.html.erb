@@ -1,0 +1,17 @@
+<br>
+<div class="jumbotron">
+	<h5 class="d-flex justify-content-center text-dark font-weight-bold"> <u>Profil de <%= @user.first_name %>:</u></h5><br>
+	<div class="d-flex justify-content-center">
+		<ul class="list-group">
+			<li class="list-group-item"><strong>Prenom</strong> : <span class="font-italic"><%= @user.first_name %></span></li>
+			<li class="list-group-item"><strong>Nom</strong> : <span class="font-italic"><%= @user.last_name %></span></li>
+			<li class="list-group-item"><strong>Age</strong> : <span class="font-italic"><%= @user.age %></span></li>
+			<li class="list-group-item"><strong>Email</strong> : <span class="font-italic"><%= @user.email %></span></li>
+			<li class="list-group-item"><strong>Ville</strong> : <span class="font-italic"><%= @user.city.name %></span></li>
+		</ul>
+	</div>
+	<hr class="my-4">
+<ul class="list-group">
+
+	<li class="list-group-item"><span>Description :</span><span class="lead"><br><%= @user.description %></span></li></ul>
+</div>

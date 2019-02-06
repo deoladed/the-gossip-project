@@ -1,0 +1,28 @@
+
+<br><% if @potin.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur!</h4>
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>  <ul>
+    <% @potin.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <hr>
+  <p class="mb-0">Veuillez reesayer, suivre les consignes et rester patient.</p>
+</div>
+<% end %>
+
+
+	<div class="d-flex flex-column align-items-center">
+<h1>Cree un THPotin !</h1><br>
+
+	<%= form_tag(potins_path) do -%>
+	<center><div class='mt-auto'><%= text_field_tag 'Potin_title', nil, placeholder: 'Titre' %></div><br></center>
+	<div><%= text_area_tag 'Potin_text', nil, placeholder: 'Raconte moi tout...', size: "50x10" %></div><br>
+	<center><div class='mt-auto'><%= submit_tag 'Creer' %></div></center>
+	<% end -%>
+</div>
+
+
+
+
