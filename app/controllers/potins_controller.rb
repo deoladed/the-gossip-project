@@ -1,7 +1,12 @@
 class PotinsController < ApplicationController
   def index
     @potins = Potin.all.reverse
-    @potin = Potin.new
+    # @user = User.new(first_name: params[:blase], city: City.all.sample) unless params[:blase].nil?
+    # if @user.save
+    # flash[:notice] = "L'user a ete cree avec succes! Vous pouvew maintenant creer des potins, liker et commenter"
+    # else
+    #   render      
+    # end
   end
 
   def show
@@ -12,16 +17,13 @@ class PotinsController < ApplicationController
     @potin = Potin.new(title: params[:Potin_title], content: params[:Potin_text], user: User.last, date: Time.now.to_date)
 
     if @potin.save
-      flash[:notice] = "Win"
+      flash[:notice] = "Votre potin a ete cree avec succes! Merci de votre mechancete, continuez a vous lacher sur vos collegues !"
       redirect_to potins_path
     else
-      flash[:alerte] = "Rate"
       render new_potin_path
     end
   end
-    # unless params[:blase].nil?
-    #   User.create(first_name: params[:blase], city: City.all.sample)
-    # end
+
   #   Like.create(user: User.all.last, likeable: Potin.find(params[:id])) if params[:commit] == 'Liker'
 
   def new

@@ -1,3 +1,11 @@
 Likes<%= form_tag(potins_path(params[:id])) do -%>
 	<div class='mt-auto'><%= submit_tag 'Liker' %></div>
 	<% end -%></div>
+
+
+	  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+    <% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+  <% end %>

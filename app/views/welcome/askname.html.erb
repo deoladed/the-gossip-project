@@ -1,3 +1,20 @@
+
+  <% if flash[:alert] %>
+
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur!</h4>
+  <p>Nous n'avons pas réussi à créer l'user pour la (ou les) raison(s) suivante(s) :</p>  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  Veuillez rentrer un nom d'utilisateur
+  <hr>
+  <p class="mb-0">Veuillez reesayer, suivre les consignes et rester patient.</p>
+</div>
+<% end %>
+
+
 <div class='d-flex-column justify-content-center align-items-center'>
 <br><br>
 <center><h2>C'est quoi ton nom ?!</h2><br>

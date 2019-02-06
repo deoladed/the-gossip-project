@@ -3,4 +3,5 @@ class Comment < ApplicationRecord
 	has_many :likes, as: :likeable
 	belongs_to :commenteable, polymorphic: true
   has_many :comments, as: :commenteable
+  validates :content, presence: true
 end
