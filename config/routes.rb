@@ -27,11 +27,11 @@ Rails.application.routes.draw do
   # post 'gossips', to: 'welcome#home'
   # get 'gossips', to: 'welcome#home'
   # get 'welcome/:name', to: 'welcome#home', as: 'welcome'
-
+  root 'potins#index'
   get 'user/:id', to: 'users#potins', as: 'potins_user'
   get 'team', to: 'statics#team'
   get 'contact', to: 'statics#contact'
   # get '/', to: 'welcome#askname', as: 'welcome'
-  post '/', to: 'user#create'
+  # post '/', to: 'user#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,5 @@
 class PotinsController < ApplicationController
-    before_action :authenticate_user, only: [:index, :new]
+    before_action :authenticate_user, only: [:new, :show]
 
   def index
     @potins = Potin.all.reverse
