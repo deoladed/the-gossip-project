@@ -25,7 +25,7 @@
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-flex", style="background-color: #7764de;">
 
-    <% logged_in? ? link = potins_path(current_user.first_name) : link = new_user_path %>
+    <% logged_in? && current_user ? link = potins_path(current_user.first_name) : link = new_user_path %>
     <%= link_to link, class:"navbar-brand" do %>
       <%= image_tag("logo.png", size: "90x24", alt: "Logo THP") %>
     <% end %>
@@ -33,7 +33,7 @@
     <span class='collapse navbar-collapse justify-content-start" id="navbarNavAltMarkup'>
       <div class="navbar-nav">
         <% logged_in? ? activeornot = 'active' : activeornot = "disabled" %>
-      <%= link_to "Paye ton potin!", new_potin_path, class:"nav-item nav-link #{activeornot}" %>
+      <%= link_to "Paye ton potin!", new_potin_path, class:"nav-item nav-link font-weight-bold #{activeornot}" %>
         <%= link_to "Potins", potins_path, class:"nav-item nav-link active" %>
         <%= link_to "Villes", cities_index_path, class:"nav-item nav-link active" %>
         <%= link_to "Users", users_path, class:"nav-item nav-link active" %>
@@ -50,7 +50,7 @@
         <span class="sr-only">(current)</span>
         <%= link_to "Contact", contact_path, class:"nav-item nav-link" %>
 
-        <% if logged_in? %>
+        <% if logged_in? && current_user %>
         <%= link_to "Se déconnecter", session_path(session[:user_id]), method: :delete, class:"nav-item nav-link" %>
         <% else %>
   <%= link_to "Inscription", new_user_path, class:"nav-item nav-link active" %>

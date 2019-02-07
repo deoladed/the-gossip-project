@@ -12,6 +12,6 @@ class User < ApplicationRecord
 	validates :password, presence: true, length: { in: 2..30 }
 	validates :email, 
 		presence: true, length: { in: 6..30 },
-		# uniqueness: { case_sensitive: false },
+		uniqueness: { case_sensitive: false },
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
 end

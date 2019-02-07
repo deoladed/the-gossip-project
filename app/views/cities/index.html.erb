@@ -11,14 +11,25 @@
 			<small>Code postal : <%= city.zip %></small>
 		</div>
 
-		<p class="mb-1 font-italic">"<%= city.users.first.potins.first.title %>"</p>
+		<p class="mb-1 font-italic">
+			<% if city.users.blank? || city.users.first.potins.blank? %>
+				Pas encore de potins dans cette ville			
+			<% else %> 
+				<%= city.users.first.potins.first.title %>
+			<% end %></p>
+			<% if city.users.blank? || city.users.first.potins.blank? %>
+		<footer class="blockquote-footer">Aucun Geek <cite title="Source Title">in <%= city.name %></cite></footer>
+		<% else %>
 		<footer class="blockquote-footer">Geek in <%= city.users.first.first_name %><cite title="Source Title">in <%= city.name %></cite></footer>
+		<% end %>
 		<% list_post = [] %>
-		<% city.users.each do |potin| %>
-			<% list_post << potin %>
+		<% city.users.each do |user| %>
+			<% user.potins.each do |potin| %>
+				<% list_post << potin %>
+			<% end %>
 		<% end %>
 
-		<small><%= list_post.size %> potins, <%= city.users.size %> users</small>
+		<small><%= list_post.size %> potins <%= ',' unless city.users.blank? %><%= city.users.size && 'users' unless city.users.blank? %></small>
 	</div>
 	<% end %>
 <% end %>
