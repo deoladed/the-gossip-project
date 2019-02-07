@@ -1,4 +1,6 @@
 class PotinsController < ApplicationController
+    before_action :authenticate_user, only: [:index, :new]
+
   def index
     @potins = Potin.all.reverse
   end
@@ -59,4 +61,15 @@ class PotinsController < ApplicationController
     # Méthode qui récupère le potin concerné et le détruit en base
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
   end
+
+private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_connexion_path
+    end
+  end
+
+
 end

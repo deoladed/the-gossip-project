@@ -44,7 +44,7 @@
         <% if logged_in? %>
         <%= link_to "Se déconnecter", session_path(session[:user_id]), method: :delete, class:"nav-item nav-link" %>
         <% else %>
-        <%= link_to "Inscription", welcome_path, class:"nav-item nav-link" %>
+        <%= link_to "Inscription", new_user_path, class:"nav-item nav-link" %>
         <%= link_to "Connexion", new_connexion_path, class:"nav-item nav-link" %>
         <% end %>      
 

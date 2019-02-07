@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :user, only: [:show]
     resources :comments, only: [:create]
   end
-  resources :user, only: [:index]
+  resources :user, except: [:show]
   resources :cities, only: [:index, :show]
   resources :comments, except: [:create]
   resources :likes, only: [:new, :create]
