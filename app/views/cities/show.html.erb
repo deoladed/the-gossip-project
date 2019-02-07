@@ -1,0 +1,31 @@
+<br>
+<div class="jumbotron">
+	<h5 class="d-flex justify-content-center text-dark font-weight-bold"> <u>Ville de <%= @city.name %>:</u></h5><br>
+
+
+			<div></div>
+	
+
+<div>
+	<% @city.users.each do |user| %>
+		<% user.potins.reverse.each do |potin| %>
+<div class="card text-center">
+  <div class="card-header">
+    <%= user.first_name %> a dit :
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= potin.title %></h5>
+    <p class="card-text"></p>
+    <%= link_to "Voir le potin", potin_path(potin.id), class:"btn btn-primary" %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= potin.date.to_s[0..-13] %>
+  </div>
+</div>
+<br>
+	<% end %>        
+
+	<% end %> 
+</div>
+
+

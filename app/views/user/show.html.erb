@@ -7,7 +7,7 @@
 			<li class="list-group-item"><strong>Nom</strong> : <span class="font-italic"><%= @user.last_name %></span></li>
 			<li class="list-group-item"><strong>Age</strong> : <span class="font-italic"><%= @user.age %></span></li>
 			<li class="list-group-item"><strong>Email</strong> : <span class="font-italic"><%= @user.email %></span></li>
-			<li class="list-group-item"><strong>Ville</strong> : <span class="font-italic"><%= @user.city.name %></span></li>
+			<li class="list-group-item"><strong>Ville</strong> : <span class="font-italic"><%= link_to "#{@user.city.name}", city_path(@user.city.id) %></span></li>
 		</ul>
 	</div>
 	<hr class="my-4">

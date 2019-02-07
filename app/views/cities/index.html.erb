@@ -1,0 +1,24 @@
+<center><h3>Les villes presentes sur THPotin</h3></center>
+
+
+
+
+<% @cities.each do |city| %>
+	<%= link_to city_path(city.id), class:"list-group-item list-group-item-action" do %>
+	<div class="list-group">
+		<div class="d-flex w-100 justify-content-between">
+			<h5 class="mb-1"><%= city.name %></h5>
+			<small>Code postal : <%= city.zip %></small>
+		</div>
+
+		<p class="mb-1 font-italic">"<%= city.users.first.potins.first.title %>"</p>
+		<footer class="blockquote-footer">Geek in <%= city.users.first.first_name %><cite title="Source Title">in <%= city.name %></cite></footer>
+		<% list_post = [] %>
+		<% city.users.each do |potin| %>
+			<% list_post << potin %>
+		<% end %>
+
+		<small><%= list_post.size %> potins, <%= city.users.size %> users</small>
+	</div>
+	<% end %>
+<% end %>

@@ -1,0 +1,33 @@
+<br>
+<% if @lecomment.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @lecomment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<div class="jumbotron">
+  <center>
+  <h1 class="display-7">Editer un commentaire</h1>
+  <p class="lead"><%= form_for(@lecomment) do |f| %>
+  <p>Contenu :</p>
+  <div class='form-group'>
+          <%= f.text_area :content, size: "50x10", class:'form_control' %>
+  </div>
+
+  <hr class="my-4">
+  <p>  <div class='form-group'>
+  </div>
+</p>
+
+      <%= f.submit "Edit", class:"btn btn-primary btn-md" %>
+      <%= link_to "", @lecomment, class:"btn btn-primary btn-lg fas fa-times", role:"button", :data => {:confirm => "You sure?", :method => "delete"} %>
+   
+</center>
+</div>
+<% end %>
+
+

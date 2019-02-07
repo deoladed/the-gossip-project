@@ -1,0 +1,29 @@
+<br>
+<div class="jumbotron">
+	<h5 class="d-flex justify-content-center text-dark font-weight-bold"> <u>Users:</u></h5><br>
+
+
+			<div></div>
+	
+
+<div>
+	<% @user.each do |user| %>
+	
+<div class="card text-center">
+  <div class="card-header">
+    <%= user.first_name %> from <%= user.city.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= user.description %></h5>
+    <p class="card-text"><footer class='blockquote-footer d-flex align-self-start'> <%= user.potins.size %> potins</footer></p>
+ 
+  </div>
+  <div class="card-footer text-muted">
+   <%= link_to 'Voir potins', potins_user_path(user.id) %>
+  </div>
+</div>
+<br>
+<% end %> 
+</div>
+
+

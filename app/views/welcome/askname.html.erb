@@ -8,8 +8,7 @@
       <li><%= message %></li>
     <% end %>
   </ul>
-  Veuillez rentrer un nom d'utilisateur
-  <hr>
+    <hr>
   <p class="mb-0">Veuillez reesayer, suivre les consignes et rester patient.</p>
 </div>
 <% end %>
@@ -19,9 +18,44 @@
 <br><br>
 <center><h2>C'est quoi ton nom ?!</h2><br>
 
-	<form action='/' method='POST'>
-		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-		Balance ton blase : <input type='text' name='blase'/> <input type='submit' value='Envoyer'/>
-	</form> </center>
+
+  <%= form_for '/' do -%>
+
+  <div class='mt-auto'>
+      Ville : <%= select_tag 'city', options_for_select(@city, nil) %>      
+  </div><br>
+
+  <center>
+    <div class='mt-auto'><%= text_field_tag 'first_name', nil, placeholder: 'Prenom' %>
+    </div><br>
+  </center>
+
+  <center>
+    <div class='mt-auto'><%= text_field_tag 'email', nil, placeholder: 'Email@thp.com' %>
+    </div><br>
+  </center>
+  
+
+  <center>
+    <div class='mt-auto'><%= text_field_tag 'password', nil, type:'password', placeholder: 'Ton password' %>
+    </div><br>
+  </center>
+  
+  <center>
+    <div class='mt-auto'><%= text_field_tag 'password_confirmation', nil, type:'password' ,placeholder: 'Encore' %>
+    </div><br>
+  </center>
+  
+
+
+  <div><%= text_area_tag 'description', nil, placeholder: 'Parle moi de toi...', size: "50x10" %>
+  </div><br>
+
+  <center>
+    <div class='mt-auto'><%= submit_tag 'Enregistrer' %></div>
+  </center>
+  <% end -%>
+
 <br><br><br><br><br><br><br>
 </div>
+

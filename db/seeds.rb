@@ -22,12 +22,12 @@ puts 'Starting to seed..'
 end
 puts '10 cities created'
  
-10.times do
-	User.create(first_name: Faker::GameOfThrones.character, last_name: Faker::StarWars.character, description: Faker::Lorem.paragraphs, age: rand(20..40), email: Faker::Internet.free_email, city: City.all.sample)
+10.times do |i|
+	User.create(first_name: Faker::GameOfThrones.character, last_name: Faker::StarWars.character, description: Faker::Lorem.paragraphs, age: rand(20..40), email: Faker::Internet.free_email, city: City.find(i + 1))
 end
 puts '10 users created'
  
-20.times do
+40.times do
 	Potin.create(title: Faker::NewGirl.quote, content: Faker::Lorem.paragraphs(4), date: Faker::Date.backward(15), user: User.all.sample)
 end
 puts '20 gossips created'
@@ -71,5 +71,5 @@ puts '20 likes created'
  pm.recipients << User.all.sample
  pm.save
 end
-puts "1fuckin' PM created"
+puts "1 fuckin' PM created"
 puts 'Seeding over, enjoy your new database'

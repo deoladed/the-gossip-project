@@ -1,0 +1,18 @@
+Allez, on se connecte, donne moi ton email et ton password
+
+
+<%= form_for potins_path do |f| %>
+	<div class='form-group'>
+		<label>Email :</label>
+  		<%= f.text_field :email, size: '50', class:'form_control' %>
+  	</div>
+	<div class='form-group'>
+		<label>Password :</label>
+  		<%= f.text_field :passsword, size: '50', class:'form_control' %>
+  	</div>
+	<div class='form-group'>
+
+	<div class='form-group'>
+  		<%= f.submit "Connexion" %>
+	</div>
+<% end %>
