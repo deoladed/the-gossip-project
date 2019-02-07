@@ -23,7 +23,8 @@ end
 puts '10 cities created'
  
 10.times do |i|
-	User.create(first_name: Faker::GameOfThrones.character, last_name: Faker::StarWars.character, description: Faker::Lorem.paragraphs, age: rand(20..40), email: Faker::Internet.free_email, city: City.find(i + 1))
+	password = Faker::Internet.password(8)
+	User.create(first_name: Faker::GameOfThrones.character, last_name: Faker::StarWars.character, description: Faker::Lorem.paragraphs, age: rand(20..40), email: Faker::Internet.free_email, city: City.find(i + 1), password: password, password_confirmation: password)
 end
 puts '10 users created'
  
