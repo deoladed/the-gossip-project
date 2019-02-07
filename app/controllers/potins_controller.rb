@@ -7,7 +7,7 @@ class PotinsController < ApplicationController
 
   def show
     @lepotin = Potin.all.find(params[:id])
-    @comment = Comment.new
+    @lecomment = Comment.new
   end
 
   def create
@@ -33,11 +33,6 @@ class PotinsController < ApplicationController
   end
 
   def update
-        p '#########################################'
-    p params
-    p '#########################################'
-
-
     @lepotin = Potin.all.find(params[:id])
     post_params = params.require(:potin).permit(:title, :content)
 
@@ -56,7 +51,7 @@ class PotinsController < ApplicationController
   def destroy
     @lepotin = Potin.all.find(params[:id])
     @lepotin.destroy
-
+    flash[:notice] = 'Potin supprime'
     redirect_to potins_path
     # Méthode qui récupère le potin concerné et le détruit en base
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)

@@ -1,13 +1,18 @@
 
-<% if @comment.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @comment.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
+
+ <% if flash[:alert] %>
+
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur!</h4>
+  <p>Nous n'avons pas réussi à créer le commentaires pour la (ou les) raison(s) suivante(s) :</p>  <ul>
+    Veuillez ecrire un commentaire
   </ul>
+    <hr>
+  <p class="mb-0">Veuillez reesayer, suivre les consignes et rester patient.</p>
+</div>
 <% end %>
-<br>
+
+
 <div class="jumbotron">
 	<div>				
 		<h3 class="text-dark font-weight-bold d-flex justify-content-between"> 

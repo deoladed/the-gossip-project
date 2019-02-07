@@ -9,3 +9,10 @@ Likes<%= form_tag(potins_path(params[:id])) do -%>
     <% if flash[:alert] %>
     <div class="notice"><%= flash[:alert] %></div>
   <% end %>
+
+
+
+
+  <div class='mt-auto'>
+      Ville : <%= select_tag 'city', options_for_select(@city, :name) %>      
+  </div><br>

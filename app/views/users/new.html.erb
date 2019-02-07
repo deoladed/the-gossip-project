@@ -1,5 +1,5 @@
 
-  <% if flash[:alert] %>
+  <% if @user.errors.any? %>
 
 <div class="alert alert-danger" role="alert">
   <h4 class="alert-heading">Erreur!</h4>
@@ -19,11 +19,9 @@
 <center><h2>C'est quoi ton nom ?!</h2><br>
 
 
-  <%= form_for user_path do -%>
+  <%= form_for @user do -%>
 
-  <div class='mt-auto'>
-      Ville : <%= select_tag 'city', options_for_select(@city, nil) %>      
-  </div><br>
+
 
   <center>
     <div class='mt-auto'><%= text_field_tag 'first_name', nil, placeholder: 'Prenom' %>

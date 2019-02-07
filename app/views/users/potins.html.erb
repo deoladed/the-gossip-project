@@ -1,0 +1,17 @@
+
+<br>
+<br>
+<div>
+<h3>Potins de <%= @user.first_name %> <%= @user.last_name %> :</h3>
+
+<% @user.potins.each do |potin| %>
+<br>
+<p>Titre : </p>
+<%= potin.title %>
+<p>Potin : </p>
+<%= potin.content %>
+<br>
+<% end %>
+
+
+</div>
