@@ -29,7 +29,7 @@
 			<% end %>
 		<% end %>
 
-		<small><%= list_post.size %> potins <%= ',' unless city.users.blank? %><%= city.users.size && 'users' unless city.users.blank? %></small>
+		<small><%= list_post.size %> potins <%= ',' unless city.users.blank? %><%= city.users.size unless city.users.blank? %> <%= 'personnes' unless city.users.blank? %></small>
 	</div>
 	<% end %>
 <% end %>

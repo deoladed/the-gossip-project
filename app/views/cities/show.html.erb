@@ -17,6 +17,24 @@
     <h5 class="card-title"><%= potin.title %></h5>
     <p class="card-text"></p>
     <%= link_to "Voir le potin", potin_path(potin.id), class:"btn btn-primary" %>
+
+    <%= link_to "Liker le potin", likes_path(potin.id), method: :post, class:"btn btn-primary" %>
+     <div class='d-flex justify-content-between'>
+        <p class='blockquote-footer align-self-start'>
+          <% if potin.comments.size == 0 %>
+          <%= potin.comments.size %> commentaire,   <cite title="Source Title"></cite>
+          <% elsif potin.comments.size == 1 %>
+          <%= potin.comments.size %> commentaire,    <cite title="Source Title"> par <%= potin.comments.first.user.first_name %></cite>
+          <% elsif potin.comments.size == 2 %>
+          <%= potin.comments.size %> commentaires,   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %> et <%= potin.comments[1].user.first_name unless potin.comments[1].user.first_name == potin.comments.first.user.first_name %></cite>
+          <% else %>
+          <%= potin.comments.size %> commentaires,   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %>, <%= potin.comments.last.user.first_name unless potin.comments[1].user.first_name == potin.comments.last.user.first_name %>..</cite>
+          <% end %>
+          <%= potin.likes.size.to_s %>
+           <% if potin.likes.size <2 %>like <% else %>likes <% end %>
+        </p>
+      </div>
+
   </div>
   <div class="card-footer text-muted">
     <%= potin.date.to_s[0..-13] %>

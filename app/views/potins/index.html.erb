@@ -11,8 +11,8 @@
       <h5 class="card-title"><%= potin.title %></h5>
       <p class="card-text"></p>
       <%= link_to "Voir le potin", potin_path(potin.id), class:"btn btn-primary" %>
-      <div class='d-flex'>
-        <footer class='blockquote-footer align-self-start'>
+      <div class='d-flex justify-content-between'>
+        <p class='blockquote-footer align-self-start'>
           <% if potin.comments.size == 0 %>
           <%= potin.comments.size %> commentaire   <cite title="Source Title"></cite>
           <% elsif potin.comments.size == 1 %>
@@ -20,9 +20,15 @@
           <% elsif potin.comments.size == 2 %>
           <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %> et <%= potin.comments[1].user.first_name %></cite>
           <% else %>
-          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %>, <%= potin.comments[1].user.first_name %> et ..</cite>
+          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %>, <%= potin.comments[1].user.first_name %>..</cite>
           <% end %>
-        </footer>
+        </p>
+        <div class='align-self-end'>
+          <%= link_to likes_path(potin.id), method: :post, class:"btn btn-primary btn-sm", role:"button" do %>
+            <div class="badge badge-primary text-wrap margin" style="width: 4rem;"><%= potin.likes.size.to_s %>
+           <% if potin.likes.size <2 %>like <% else %>likes <% end %> <i class="fas fa-thumbs-up"></i></div>
+           <% end %>
+        </div>
       </div>
     </div>
     <div class="card-footer text-muted">
