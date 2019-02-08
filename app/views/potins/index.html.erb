@@ -1,5 +1,5 @@
 <center><br><h1>WELCOME <%= current_user.first_name.upcase if logged_in? && current_user %></h1><br>
-  <p>Hey salut <%= current_user.first_name if logged_in? && current_user %> ! Bienvenue sur THE site de potins. <span class='font-weight-bold'>Eclate toi et viens cracher sur tes copains !</span></p><br></center>
+  <p>Hey salut <%= current_user.first_name if logged_in? && current_user %> ! Bienvenue sur THE site de potins. <span class='font-weight-bold'>Viens cracher sur tes copains !</span></p><br></center>
 
   <div>
    <% @potins.each do |potin| %>
@@ -18,16 +18,18 @@
           <% elsif potin.comments.size == 1 %>
           <%= potin.comments.size %> commentaire    <cite title="Source Title"> par <%= potin.comments.first.user.first_name %></cite>
           <% elsif potin.comments.size == 2 %>
-          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %> et <%= potin.comments[1].user.first_name %></cite>
+          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %> et <%= potin.comments[1].user.first_name unless potin.comments[1].user == potin.comments.first.user %></cite>
           <% else %>
-          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %>, <%= potin.comments[1].user.first_name %>..</cite>
+          <%= potin.comments.size %> commentaires   <cite title="Source Title"> par <%= potin.comments.first.user.first_name %>, <%= potin.comments[1].user.first_name unless potin.comments[1].user == potin.comments.first.user %>..</cite>
           <% end %>
         </p>
         <div class='align-self-end'>
+        <% if logged_in? && current_user %>
           <%= link_to likes_path(potin.id), method: :post, class:"btn btn-primary btn-sm", role:"button" do %>
             <div class="badge badge-primary text-wrap margin" style="width: 4rem;"><%= potin.likes.size.to_s %>
            <% if potin.likes.size <2 %>like <% else %>likes <% end %> <i class="fas fa-thumbs-up"></i></div>
            <% end %>
+        <% end %>
         </div>
       </div>
     </div>

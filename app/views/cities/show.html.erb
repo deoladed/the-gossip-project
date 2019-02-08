@@ -17,8 +17,9 @@
     <h5 class="card-title"><%= potin.title %></h5>
     <p class="card-text"></p>
     <%= link_to "Voir le potin", potin_path(potin.id), class:"btn btn-primary" %>
-
+<% if logged_in? && current_user %>
     <%= link_to "Liker le potin", likes_path(potin.id), method: :post, class:"btn btn-primary" %>
+<% end %>
      <div class='d-flex justify-content-between'>
         <p class='blockquote-footer align-self-start'>
           <% if potin.comments.size == 0 %>

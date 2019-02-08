@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
+   
   def create
-
 
   	if params[:format].nil?
  			 	if current_user.likes.find_by(likeable_type: 'Comment', likeable_id: params[:monparams][:comment_id]).nil?

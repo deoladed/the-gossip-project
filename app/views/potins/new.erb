@@ -16,16 +16,10 @@
 <h1>Cree un THPotin !</h1><br>
 
 	<%= form_tag(potins_path) do -%>
-	<center><div class='mt-auto'><%= text_field_tag 'Potin_title', nil, placeholder: 'Titre' %><%= select_tag 'Tag', options_for_select(@tag, nil) %></div><br></center>
+	<center><div class='mt-auto'><%= text_field_tag 'Potin_title', nil, placeholder: 'Titre' %>   
+      <%= select_tag 'Tag', options_for_select(@tag, nil), prompt: "Please select", multiple: true, size: 5 %>
+    </div><br></center>
 	<div><%= text_area_tag 'Potin_text', nil, placeholder: 'Raconte moi tout...', size: "50x10" %></div><br>
 	<center><div class='mt-auto'><%= submit_tag 'Creer' %></div></center>
 	<% end -%>
 </div>
-
-
-
-
-
-
-
-

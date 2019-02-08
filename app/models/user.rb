@@ -8,7 +8,7 @@ class User < ApplicationRecord
 	has_many :sent_messages, foreign_key: 'sender_id', class_name: "PrivateMessage"
 	has_many :received_messages, foreign_key: 'recipient_id', class_name: 'PrivateMesssage'
 
-	validates :first_name, presence: true, length: { in: 1..30 }
+	validates :first_name, presence: true, length: { in: 3..20 }
 	validates :password, presence: true, length: { in: 2..30 }
 	validates :email, 
 		presence: true, length: { in: 6..30 },

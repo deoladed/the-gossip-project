@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
     	flash[:notice] = 'Commentaire edite avec succes'
       redirect_to potin_path(Comment.find(params[:id]).commenteable_id)
     else
-      puts @lecomment.errors.full_messages
       render :edit
     end
 	end
