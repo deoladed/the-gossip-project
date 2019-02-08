@@ -6,12 +6,13 @@ class ConnexionController < ApplicationController
   end
 
   def create
-    my_user = User.find_by(email: params[:email])
+    my_user = User.find_by(email: params[:email].downcase)
 
     if my_user && my_user.authenticate(params[:password])
     flash[:notice] = 'Vous etes connecte'
-    session[:user_id] = my_user.id
-  	redirect_to potins_path
+    log_in my_user
+    params[:remember_me] == '1' ? remember(my_user) : forget(my_user)
+    redirect_to potins_path
 
   	else
   	flash[:alert] = 'Mail ou password incorrect'
@@ -20,7 +21,7 @@ class ConnexionController < ApplicationController
   end
 
   def destroy
-  	session.delete(:user_id)
+    log_out if logged_in?
     redirect_to new_connexion_path
   end
 end

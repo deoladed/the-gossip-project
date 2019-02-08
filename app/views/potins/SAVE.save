@@ -16,3 +16,26 @@ Likes<%= form_tag(potins_path(params[:id])) do -%>
   <div class='mt-auto'>
       Ville : <%= select_tag 'city', options_for_select(@city, :name) %>      
   </div><br>
+
+
+  cookies.permanent[:remember_token] = remember_token
+  cookies.signed[:user_id] = user.id
+  cookies.permanent.signed[:user_id] = user.id
+  User.find_by(id: cookies.signed[:user_id])
+
+
+
+  
+  <%= form_tag(connexion_index_path) do -%>
+  <center><div class='mt-auto'><%= text_field_tag 'email', nil, placeholder: 'Email' %></div><br></center>
+  <center><div class='mt-auto'><%= text_field_tag 'password', nil, type:'password', placeholder: 'Password' %></div><br></center>
+  <center><div class='mt-auto'><%= submit_tag 'Connexion' %></div></center>
+<% end -%>
+
+
+  <%= form_for connexion_index_path do |f| %>
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me on this computer</span>
+    <% end %>
+  <% end %>

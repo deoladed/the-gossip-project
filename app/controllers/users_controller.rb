@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.save
     flash[:notice] = "L'user a ete cree avec succes! Vous pouvez maintenant creer des potins, liker et commenter"
     log_in(@user)
+    redirect_to potins_path
     else
    	render :new
     end

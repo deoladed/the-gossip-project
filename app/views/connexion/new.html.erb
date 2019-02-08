@@ -1,9 +1,17 @@
+
+<div class='border'>
 <br><center><h3> Connexion </h3></center><br>
 
-
+<center>
 	<%= form_tag(connexion_index_path) do -%>
-	<center><div class='mt-auto'><%= text_field_tag 'email', nil, placeholder: 'Email' %></div><br></center>
-	<center><div class='mt-auto'><%= text_field_tag 'password', nil, type:'password', placeholder: 'Password' %></div><br></center>
-	<center><div class='mt-auto'><%= submit_tag 'Connexion' %></div></center>
-<% end -%>
+		<div class='mt-auto'><%= text_field_tag 'email', nil, placeholder: 'Email' %></div><br>
+		<div class='mt-auto'><%= text_field_tag 'password', nil, type:'password', placeholder: 'Password' %></div><br>
+		<%= label_tag 'remember_me', class: "checkbox inline" do %>
+			<%= check_box_tag "remember_me" %>
+			<span>Remember me on this computer</span>
+		<% end %>
+		<div class='mt-auto'><%= submit_tag 'Connexion' %></div>
+	<% end -%>
+	<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+</center>
 </div>
